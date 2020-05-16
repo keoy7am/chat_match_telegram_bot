@@ -6,7 +6,7 @@ cffi==1.13.2
 Click==7.0
 cryptography==2.8
 dnspython==1.16.0
-Flask==0.12.4
+Flask==1.0
 Flask-RESTful==0.3.7
 gevent==1.4.0
 greenlet==0.4.15
