@@ -2,6 +2,7 @@
 """
 usage: /start
 """
+from .utility import send_send_typing_action
 from bot_poc import Commands
 from telegram.ext import CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
@@ -13,6 +14,7 @@ class StartCommand():
         self.handler = CommandHandler
         self.filter  = Filters.text
         
+    @send_send_typing_action
     def _execute(self, bot, update):
         """ 顯示初始資訊 """
         commands_str = "\n".join(["- /{}".format(c.name) for c in Commands])

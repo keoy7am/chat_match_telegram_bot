@@ -2,6 +2,7 @@
 """
 usage: /match
 """
+from .utility import send_send_typing_action
 from bot_poc import redisInst
 from telegram.ext import StringCommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
@@ -12,7 +13,8 @@ class LeaveCommand():
         self.usage   = "/leave ,離開配對佇列/對話"
         self.handler = StringCommandHandler
         self.filter  = Filters.text
-        
+
+    @send_send_typing_action
     def _execute(self, bot, update):
         """ 離開配對 """
         sender = str(update.message.chat_id)

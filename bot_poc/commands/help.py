@@ -2,6 +2,7 @@
 """
 usage: /help
 """
+from .utility import send_send_typing_action
 from bot_poc import Commands
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CommandHandler
@@ -12,7 +13,8 @@ class HelpCommand():
         self.name = "help"
         self.usage   = "/help ,顯示指令列表"
         self.handler = CommandHandler
-        
+
+    @send_send_typing_action
     def _execute(self, bot, update):
         """ 顯示指令列表 """
         commands_str = " \n".join(["- {}".format(c.usage) for c in Commands])
