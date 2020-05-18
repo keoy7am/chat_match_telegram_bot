@@ -42,8 +42,11 @@ Requires Python3 (It's tested on python 3.7.3)
 
 - Decoupling data access layer
   - The program is depend on the Redis database for chat pairing data access now.
-If you abstract the data access behavior,
-You can support the use of other databases.
-- Implement something to prevent resource competition
-  - When the number of users is large,
-There may be a situation where a queue is matched to different people.
+If you abstract the data access behavior,  
+You can support the use of other databases.  
+- Implement something to prevent resource competition  
+  - When the number of users is large,  
+There may be a situation where a queue is matched to different people.  
+- Globalization
+  - Match by user's language
+  - Reply based on user's language (Default:English)
