@@ -7,5 +7,5 @@ JSON_AS_ASCII           = False
 TEMPLATES_AUTO_RELOAD   = True
 
 # 設置 bot_poc.config
-BOT_API_KEY             = "1296363175:AAGeDIFhxRIfPOv9toHan6z55P1lmGnDD5Q"
-BOT_HOOK_URL            = "https://botpoc.keoy7am.com/hook"
+BOT_API_KEY             = "1234567890:ABCDEFGHIJKKKKKKKKKK"
+BOT_HOOK_URL            = "https://Domainnnnnnnnnnnnn/hook"
