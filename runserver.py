@@ -9,8 +9,9 @@ importlib.reload(sys)
 from os import environ
 from bot_poc import app
 
-import ptvsd
-ptvsd.enable_attach()
+# Remote Debug use
+# import ptvsd
+# ptvsd.enable_attach()
 
 if __name__ == '__main__':
     DEBUG = environ.get('APP_DEBUG', False)

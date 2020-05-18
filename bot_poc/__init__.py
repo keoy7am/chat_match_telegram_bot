@@ -18,11 +18,11 @@ app = Flask(__name__)
 app.config.from_object(config)
 
 import redis
-connectionPool = redis.ConnectionPool(host='localhost', port=6379 ,decode_responses=True)
+connectionPool = redis.ConnectionPool(host='redis', port=6379 ,decode_responses=True)
 redisInst = redis.Redis(connection_pool=connectionPool)
 redisInst.set('test','ok')
 
-print("Config Loaded!")
+logger.info("Config Loaded!")
 if(app.config['TEMPLATES_AUTO_RELOAD']==True):
     app.jinja_env.auto_reload = True
     print('enabled auto_reload')
@@ -41,7 +41,7 @@ def setHook():
         url = "https://api.telegram.org/bot{}/setWebhook?url={}".format(app.config['BOT_API_KEY'],app.config['BOT_HOOK_URL'])
         res = req.get(url)
         result = "setting hook to {}.<br>result:{}".format(url,res.text)
-        return result
+        return res.text
     except:
         return "send failed."
 
