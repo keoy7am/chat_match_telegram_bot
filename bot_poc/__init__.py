@@ -17,9 +17,10 @@ import bot_poc.config
 app = Flask(__name__)
 app.config.from_object(config)
 
-from redis import Redis
-redis = Redis(host='localhost', port=6379 ,decode_responses=True)
-redis.set('test','ok')
+import redis
+connectionPool = redis.ConnectionPool(host='localhost', port=6379 ,decode_responses=True)
+redisInst = redis.Redis(connection_pool=connectionPool)
+redisInst.set('test','ok')
 
 print("Config Loaded!")
 if(app.config['TEMPLATES_AUTO_RELOAD']==True):

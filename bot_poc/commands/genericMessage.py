@@ -2,7 +2,7 @@
 """
 usage: /genericMessage
 """
-from bot_poc import Commands
+from bot_poc import Commands, redisInst
 from telegram.ext import MessageHandler, Filters
 from telegram.utils.helpers import escape_markdown
 
@@ -22,7 +22,10 @@ class GenericMessageCommand():
                 c._execute(bot, update)
                 return
         
-        # TODO 若使用者處於會話狀態則轉發訊息
+        sender = str(update.message.chat_id)
+        matched = redisInst.get(sender)
+        if(matched):
+            bot.send_message(chat_id=matched, text=text)
 
     def _registe(self,dispatcher):
         dispatcher.add_handler(self.handler(self.filter, self._execute))
