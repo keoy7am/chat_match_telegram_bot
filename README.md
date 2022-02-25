@@ -50,3 +50,5 @@ There may be a situation where a queue is matched to different people.
 - Globalization
   - Match by user's language
   - Reply based on user's language (Default:English)
+- New Features
+  - Add gender selection
